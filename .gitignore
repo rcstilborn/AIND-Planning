@@ -1,0 +1,7 @@
+.metadata/
+.project
+.pydevproject
+__pycache__/
+aimacode/__pycache__/
+tests/__pycache__/
+screen_dump.txt
