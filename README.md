@@ -1,6 +1,16 @@
 
 # Implement a Planning Search
 
+This is one of the assignments in the first term of Udacity's Artificial Intelligence Nanodegree.  Our tasks were: 
+
+0. Implement the Python methods and functions as marked in `my_air_cargo_problems.py`
+0. Experiment and document metrics
+0. Implement relaxed problem heuristic in `my_air_cargo_problems.py`
+0. Implement Planning Graph and automatic heuristic in `my_planning_graph.py`
+0. Experiment and document metrics
+0. Write up the results in `heuristic_analysis.pdf`
+0. Also summarize three papers on planning in `research_review.pdf`
+
 ## Synopsis
 
 This project includes skeletons for the classes and functions needed to solve deterministic logistics planning problems for an Air Cargo transport system using a planning search agent. 
