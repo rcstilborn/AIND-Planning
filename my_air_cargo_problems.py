@@ -46,12 +46,6 @@ class AirCargoProblem(Problem):
             list of Action objects
         '''
 
-        # TODO create concrete Action objects based on the domain action schema for: Load, Unload, and Fly
-        # concrete actions definition: specific literal action that does not include variables as with the schema
-        # for example, the action schema 'Load(c, p, a)' can represent the concrete actions 'Load(C1, P1, SFO)'
-        # or 'Load(C2, P2, JFK)'.  The actions for the planning problem must be concrete because the problems in
-        # forward search and Planning Graphs must use Propositional Logic
-
         def load_actions():
             '''Create all concrete Load actions and return a list
 
@@ -130,7 +124,6 @@ class AirCargoProblem(Problem):
             e.g. 'FTTTFF'
         :return: list of Action objects
         """
-        # TODO implement
         possible_actions = []
         kb = PropKB()
         kb.tell(decode_state(state, self.state_map).pos_sentence())
@@ -144,8 +137,6 @@ class AirCargoProblem(Problem):
                     is_possible = False
             if is_possible:
                 possible_actions.append(action)
-#             if action.check_precond(kb,action.args):
-#                 possible_actions.append(action)
 
         return possible_actions
 
@@ -158,7 +149,6 @@ class AirCargoProblem(Problem):
         :param action: Action applied
         :return: resulting state after action
         """
-        # TODO implement
         new_state = FluentState([], [])
         old_state = decode_state(state, self.state_map)
         for fluent in old_state.pos:
@@ -174,11 +164,6 @@ class AirCargoProblem(Problem):
             if fluent not in new_state.neg:
                 new_state.neg.append(fluent)
         return encode_state(new_state, self.state_map)
-#         kb = PropKB()
-#         kb.tell(decode_state(state, self.state_map).pos_sentence())
-#         action.act(kb, action.args)
-#         new_state = FluentState([], [])
-#         return encode_state(new_state, self.state_map)
 
     def goal_test(self, state: str) -> bool:
         """ Test the state to see if goal is reached
@@ -255,14 +240,6 @@ def air_cargo_p1() -> AirCargoProblem:
 
 
 def air_cargo_p2() -> AirCargoProblem:
-    # TODO implement Problem 2 definition
-#     Init(At(C1, SFO) ∧ At(C2, JFK) ∧ At(C3, ATL) 
-#     ∧ At(P1, SFO) ∧ At(P2, JFK) ∧ At(P3, ATL) 
-#     ∧ Cargo(C1) ∧ Cargo(C2) ∧ Cargo(C3)
-#     ∧ Plane(P1) ∧ Plane(P2) ∧ Plane(P3)
-#     ∧ Airport(JFK) ∧ Airport(SFO) ∧ Airport(ATL))
-#     Goal(At(C1, JFK) ∧ At(C2, SFO) ∧ At(C3, SFO))
-
     cargos = ['C1', 'C2', 'C3']
     planes = ['P1', 'P2', 'P3']
     airports = ['JFK', 'SFO', 'ATL']
@@ -304,14 +281,6 @@ def air_cargo_p2() -> AirCargoProblem:
 
 
 def air_cargo_p3() -> AirCargoProblem:
-    # TODO implement Problem 3 definition
-#     Init(At(C1, SFO) ∧ At(C2, JFK) ∧ At(C3, ATL) ∧ At(C4, ORD) 
-#     ∧ At(P1, SFO) ∧ At(P2, JFK) 
-#     ∧ Cargo(C1) ∧ Cargo(C2) ∧ Cargo(C3) ∧ Cargo(C4)
-#     ∧ Plane(P1) ∧ Plane(P2)
-#     ∧ Airport(JFK) ∧ Airport(SFO) ∧ Airport(ATL) ∧ Airport(ORD))
-#     Goal(At(C1, JFK) ∧ At(C3, JFK) ∧ At(C2, SFO) ∧ At(C4, SFO))
-
     cargos = ['C1', 'C2', 'C3', 'C4']
     planes = ['P1', 'P2']
     airports = ['JFK', 'SFO', 'ATL', 'ORD']
