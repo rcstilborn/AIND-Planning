@@ -2,7 +2,7 @@
 .project
 .pydevproject
 __pycache__/
-aimacode/__pycache__/
+aimacode/
 tests/__pycache__/
 screen_dump.txt
 AIND-Planning 2.zip
